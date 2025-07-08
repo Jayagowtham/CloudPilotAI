@@ -1,25 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+"use client"
+
+import { useState, useEffect } from "react"
+import "./App.css"
+import Header from "./components/Header"
+import Hero from "./components/Hero"
+import Features from "./components/Features"
+import Benefits from "./components/Benefits"
+import Demo from "./components/Demo"
+import Team from "./components/Team"
+import Contact from "./components/Contact"
+import Footer from "./components/Footer"
 
 function App() {
+  const [isLoaded, setIsLoaded] = useState(false)
+
+  useEffect(() => {
+    setIsLoaded(true)
+  }, [])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={`App ${isLoaded ? "loaded" : ""}`}>
+      <Header />
+      <Hero />
+      <Features />
+      <Benefits />
+      <Demo />
+      <Team />
+      <Contact />
+      <Footer />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
